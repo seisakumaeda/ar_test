@@ -1,61 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>AR.js NFT Test</title>
-    <!-- A-FrameとAR.jsの読み込み -->
-    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1.6.0/dist/aframe-master.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-
-    <style>
-      .arjs-loader {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.8);
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .arjs-loader div {
-        text-align: center;
-        font-size: 1.25em;
-        color: white;
-        font-family: sans-serif;
-      }
-    </style>
+    <title>AR.js 確実起動テスト</title>
+    
+    <!-- 安定動作する組み合わせのライブラリ（CDN） -->
+    <script src="https://aframe.io"></script>
+    <script src="https://githack.com"></script>
   </head>
-
+  
   <body style="margin: 0px; overflow: hidden;">
-    <!-- データ読み込み中に表示される画面 -->
-    <div class="arjs-loader">
-      <div>Loading, please wait...</div>
-    </div>
-
-    <a-scene
-      vr-mode-ui="enabled: false;"
-      renderer="logarithmicDepthBuffer: true; precision: medium;"
-      embedded
-      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-    >
-      <!-- your-server/ を削除し、公式リポジトリから直接データを読み込むように修正 -->
-      <a-nft
-        type="nft"
-        url="https://github.io"
-        smooth="true"
-        smoothCount="10"
-        smoothTolerance=".01"
-        smoothThreshold="5"
-      >
-        <!-- 3Dモデルの読み込み先からも your-server/ を削除 -->
-        
-        
-      </a-nft>
+    <!-- ローディング画面などの余計なプログラムを一切挟まず、ダイレクトにカメラを起動します -->
+    <a-scene embedded vr-mode-ui="enabled: false;" arjs="sourceType: webcam; debugUIEnabled: false;">
       
+      <!-- Hiroマーカーを検知したときに青い立方体を表示 -->
+      <a-marker preset="hiro">
+        <a-box position="0 0.5 0" material="color: #007bff;"></a-box>
+      </a-marker>
+      
+      <!-- AR用のカメラ -->
       
     </a-scene>
   </body>
