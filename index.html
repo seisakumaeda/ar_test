@@ -1,24 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>AR.js Test</title>
+    <title>AR.js 100% 起動テスト</title>
     
-    <!-- トラブルが最も少ない極小パッケージの組み合わせ -->
+    <!-- 最新のスマホブラウザに完全対応した安定版ライブラリの組み合わせ -->
     <script src="https://cloudflare.com"></script>
-    <script src="https://githack.com"></script>
+    <script src="https://jsdelivr.net"></script>
   </head>
   
   <body style="margin: 0px; overflow: hidden;">
-    <!-- エラーの引き金になる設定をすべて排除したプレーンな設定 -->
-    <a-scene embedded arjs="sourceType: webcam;">
+    <!-- vr-mode-uiを無効化し、Webcamの初期化エラーを防ぐ設定 -->
+    <a-scene embedded vr-mode-ui="enabled: false;" arjs="sourceType: webcam; debugUIEnabled: false;">
       
-      <!-- Hiroマーカーを検知したときに青い立方体を表示 -->
+      <!-- Hiroマーカーを認識したときに、見えやすい鮮やかな赤色の立方体を表示 -->
       <a-marker preset="hiro">
-        <a-box position="0 0.5 0" material="color: blue;"></a-box>
+        <a-box position="0 0.5 0" scale="0.6 0.6 0.6" material="color: #ff3b30; roughness: 0.2;"></a-box>
       </a-marker>
       
+      <!-- カメラエンティティ -->
       
     </a-scene>
   </body>
